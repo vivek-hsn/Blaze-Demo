@@ -20,5 +20,9 @@ jobs:
       run:   |
           chmod +x ./scripts/chromeinstaller.sh
                     ./scripts/chromeinstaller.sh 
+    - name:  Install Firefox # Using shell script to install Google Chrome
+      run:   |
+          chmod +x ./scripts/InstallFirefox.sh
+                    ./scripts/InstallFirefox.sh 
     - name: Build with Maven
       run: mvn test --file pom.xml
