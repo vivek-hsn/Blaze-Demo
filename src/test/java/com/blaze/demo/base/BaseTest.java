@@ -172,7 +172,6 @@ public class BaseTest {
 
 	@AfterTest()
 	public void afterTest() {
-
 		driver.quit();
 	}
 

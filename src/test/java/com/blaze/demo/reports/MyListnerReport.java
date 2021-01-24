@@ -41,9 +41,10 @@ public class MyListnerReport extends BaseTest implements ITestListener{
 	public void onTestFailure(ITestResult result){
 		
 		TakesScreenshot ts = (TakesScreenshot)driver;
-		File src = ts.getScreenshotAs(OutputType.FILE);
-		String path = System.getProperty("user.dir") + "\\results\\" + result.getMethod().getMethodName() + "-" + browserName +".png";
+		
 		try{
+			File src = ts.getScreenshotAs(OutputType.FILE);
+			String path = System.getProperty("user.dir") + "\\results\\" + result.getMethod().getMethodName() + "-" + browserName +".png";
 			FileUtils.copyFile(src, new File(path));
 			extentTest.get().fail(result.getThrowable());
 			extentTest.get().addScreenCaptureFromPath(path, result.getMethod().getMethodName() + "-" +browserName);
