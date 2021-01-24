@@ -1,6 +1,7 @@
 package com.blaze.demo.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import com.blaze.demo.base.BaseTest;
@@ -47,5 +48,9 @@ public class Order extends BaseTest{
 		WAIT_FOR_SEC(WAIT_2_SECS);
 	}
 	
+	@AfterTest()
+	public void afterTest() {
+		driver.quit();
+	}
 	
 }
