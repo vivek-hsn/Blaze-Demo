@@ -66,14 +66,12 @@ public class BaseTest {
 
 		if (browser.equals("chrome")) {
 			
-			System.out.println("Chrome is starting for execution");
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--no-sandbox");
 			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("--headless");
 			driver = new ChromeDriver(options);
-			System.out.println("===========Before initialize======================");
 			initialize();
 
 		} else if (browser.equals("firefox")) {
@@ -108,7 +106,6 @@ public class BaseTest {
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		driver.get("https://www.demoblaze.com/");
-		System.out.println("URL is entered");
 	}
 
 	@BeforeMethod
