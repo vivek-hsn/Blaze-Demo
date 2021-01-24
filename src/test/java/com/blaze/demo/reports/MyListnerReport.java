@@ -40,7 +40,9 @@ public class MyListnerReport extends BaseTest implements ITestListener{
 	
 	public void onTestFailure(ITestResult result){
 		
-		TakesScreenshot ts = (TakesScreenshot)driver;
+		extentTest.get().fail(result.getThrowable());
+		
+/*		TakesScreenshot ts = (TakesScreenshot)driver;
 		
 		try{
 			File src = ts.getScreenshotAs(OutputType.FILE);
@@ -51,7 +53,7 @@ public class MyListnerReport extends BaseTest implements ITestListener{
 		}
 		catch(IOException e){
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result){
