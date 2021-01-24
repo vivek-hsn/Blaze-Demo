@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel = "none" thread-count = "1">
+
+	<listeners>
+		<listener class-name="com.blaze.demo.reports.MyListnerReport"></listener>
+	</listeners>
+	
+	<test name="Chrome Test">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="com.blaze.demo.tests.Order" />
+		</classes>
+	</test>
+	
+	<test name="FireFox Test">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="com.blaze.demo.tests.Order" />
+		</classes>
+	</test> 
+
+</suite> <!-- Suite -->
