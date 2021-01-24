@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -75,9 +77,13 @@ public class BaseTest {
 			initialize();
 
 		} else if (browser.equals("firefox")) {
-
+			
+			FirefoxBinary firefoxBinary = new FirefoxBinary();
+		    firefoxBinary.addCommandLineOptions("--headless");
 			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
+		    firefoxOptions.setBinary(firefoxBinary);
+			driver = new FirefoxDriver(firefoxOptions);
 			initialize();
 
 		} else if (browser.equals("ie")) {

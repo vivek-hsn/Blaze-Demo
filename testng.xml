@@ -5,26 +5,26 @@
 	<listeners>
 		<listener class-name="com.blaze.demo.reports.MyListnerReport"></listener>
 	</listeners>
-	
+
 	<test name="Chrome Test">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.blaze.demo.tests.Order" />
 		</classes>
 	</test>
-	
+
 	<test name="Dark API Test">
 		<parameter name="browser" value="API" />
 		<classes>
 			<class name="com.blaze.demo.tests.DarkSkyApi" />
 		</classes>
 	</test>
-	
-<!-- 	<test name="FireFox Test">
+
+	<test name="FireFox Test">
 		<parameter name="browser" value="firefox" />
 		<classes>
 			<class name="com.blaze.demo.tests.Order" />
 		</classes>
-	</test> -->
+	</test>
 
 </suite> 
