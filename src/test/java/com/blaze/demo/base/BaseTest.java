@@ -1,7 +1,5 @@
 package com.blaze.demo.base;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -44,19 +42,6 @@ public class BaseTest {
 
 	@BeforeSuite
 	public void beforeSuite() {
-/*		try {
-			String process;
-
-			Process p = Runtime.getRuntime().exec("tasklist.exe /fo csv /nh");
-			BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			while ((process = input.readLine()) != null) {
-				System.out.println(process);
-			}
-			input.close();
-			p.destroy();
-		} catch (Exception err) {
-			err.printStackTrace();
-		}*/
 
 		String path = System.getProperty("user.dir") + "\\results\\reports.html";
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
@@ -74,46 +59,9 @@ public class BaseTest {
 		}
 	}
 
-	public void killBrowser(String browser) {
-
-		Process process = null;
-
-		try {
-			if (browser.equals("chrome")) {
-
-				process = Runtime.getRuntime().exec("taskkill /im chrome.exe /f");
-				process = Runtime.getRuntime().exec("taskkill /im chromedriver.exe /f");
-			} else if (browser.equals("firefox")) {
-
-				process = Runtime.getRuntime().exec("taskkill /im firefox.exe /f");
-				process = Runtime.getRuntime().exec("taskkill /im geckodriver.exe /f");
-			} else if (browser.equals("ie")) {
-
-				process = Runtime.getRuntime().exec("taskkill /im iexplore.exe /f");
-				process = Runtime.getRuntime().exec("taskkill /im iedriver.exe /f");
-			} else if (browser.equals("edge")) {
-
-				process = Runtime.getRuntime().exec("taskkill /im msedge.exe /f");
-				process = Runtime.getRuntime().exec("taskkill /im msedgedriver.exe /f");
-			}
-			else if(browser.equals("API")){
-				
-			}
-
-		} catch (Exception err) {
-			err.printStackTrace();
-		}
-		//process.destroy();
-	}
-
 	@Parameters("browser")
 	@BeforeTest
-	public void beforeTest(String browser) throws Exception {
-
-		browserName = browser;
-
-//		killBrowser(browserName);
-		WAIT_FOR_SEC(WAIT_2_SECS);
+	public void beforeTest(String browser) {
 
 		if (browser.equals("chrome")) {
 			
@@ -144,10 +92,9 @@ public class BaseTest {
 			logger = Logger.getLogger("RestAssuredFrameWork");
 		}
 		else {
-			System.err.println("Invalid browser parameter");
+			System.out.println("Invalid browser parameter");
 		}
-		
-		
+		browserName = browser;
 	}
 	
 	public void initialize(){
