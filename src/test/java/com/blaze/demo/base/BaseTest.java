@@ -116,7 +116,8 @@ public class BaseTest {
 		WAIT_FOR_SEC(WAIT_2_SECS);
 
 		if (browser.equals("chrome")) {
-
+			
+			System.out.println("Chrome is starting for execution");
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			initialize();
@@ -154,6 +155,7 @@ public class BaseTest {
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		driver.get("https://www.demoblaze.com/");
+		System.out.println("URL is entered");
 	}
 
 	@BeforeMethod
