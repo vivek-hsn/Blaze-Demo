@@ -44,7 +44,7 @@ public class BaseTest {
 
 	@BeforeSuite
 	public void beforeSuite() {
-		try {
+/*		try {
 			String process;
 
 			Process p = Runtime.getRuntime().exec("tasklist.exe /fo csv /nh");
@@ -56,7 +56,7 @@ public class BaseTest {
 			p.destroy();
 		} catch (Exception err) {
 			err.printStackTrace();
-		}
+		}*/
 
 		String path = System.getProperty("user.dir") + "\\results\\reports.html";
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
@@ -112,7 +112,7 @@ public class BaseTest {
 
 		browserName = browser;
 
-		killBrowser(browserName);
+//		killBrowser(browserName);
 		WAIT_FOR_SEC(WAIT_2_SECS);
 
 		if (browser.equals("chrome")) {
