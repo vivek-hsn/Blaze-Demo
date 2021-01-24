@@ -72,7 +72,8 @@ public class BaseTest {
 			options.addArguments("--no-sandbox");
 			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("--headless");
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(options);
+			System.out.println("===========Before initialize======================");
 			initialize();
 
 		} else if (browser.equals("firefox")) {
