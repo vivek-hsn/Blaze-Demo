@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,7 +14,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -34,11 +34,13 @@ public class BaseTest {
 	protected static final int WAIT_5_SECS = 5;
 	protected static final int WAIT_10_SECS = 10;
 
-	public static String browserName = null;
+	public static String browserName = "API";
 
 	public static WebDriver driver = null; 
 
 	public static ExtentReports extent = null;
+	
+	public Logger logger;
 
 	@BeforeSuite
 	public void beforeSuite() {
@@ -94,11 +96,14 @@ public class BaseTest {
 				process = Runtime.getRuntime().exec("taskkill /im msedge.exe /f");
 				process = Runtime.getRuntime().exec("taskkill /im msedgedriver.exe /f");
 			}
+			else if(browser.equals("API")){
+				
+			}
 
 		} catch (Exception err) {
 			err.printStackTrace();
 		}
-		process.destroy();
+		//process.destroy();
 	}
 
 	@Parameters("browser")
@@ -114,40 +119,45 @@ public class BaseTest {
 
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
+			initialize();
 
 		} else if (browser.equals("firefox")) {
 
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
+			initialize();
 
 		} else if (browser.equals("ie")) {
 
 			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
+			initialize();
 
 		} else if (browser.equals("edge")) {
 
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
+			initialize();
 
-		} else {
+		} else if (browser.equals("API")){
+			logger = Logger.getLogger("RestAssuredFrameWork");
+		}
+		else {
 			System.err.println("Invalid browser parameter");
 		}
 		
+		
+	}
+	
+	public void initialize(){
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		driver.get("https://www.demoblaze.com/");
 	}
 
-	@BeforeClass
-	public void starting() {
-
-	}
-
 	@BeforeMethod
 	public void beforeMethod() {
-		System.out.println("This is before method");
 	}
 
 	@AfterMethod

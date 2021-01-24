@@ -20,14 +20,10 @@ public class MyListnerReport extends BaseTest implements ITestListener{
 	private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 	
 	public void onStart(ITestContext context){
-		System.out.println("On the start");
-
-		
 	}
 		
 	public void onTestStart(ITestResult result){
 		
-		System.out.println("On Test Start");
 		test = extent.createTest(result.getMethod().getMethodName() + "-" + browserName);
 		extentTest.set(test);
 		
@@ -35,18 +31,14 @@ public class MyListnerReport extends BaseTest implements ITestListener{
 	
 	public void onTestSuccess(ITestResult result){
 		
-		System.out.println("On Test Success");
 		extentTest.get().log(Status.PASS, result.getMethod().getMethodName() + " method on " + browserName + " is Passed");
 	}
 	
 	public void onTestSkipped(ITestResult result){
-		System.out.println("On test skipped");
 		extentTest.get().log(Status.SKIP, result.getMethod().getMethodName() + " method on " + browserName + " is Skipped");
 	}
 	
 	public void onTestFailure(ITestResult result){
-		
-		System.out.println("On test failure");
 		
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File src = ts.getScreenshotAs(OutputType.FILE);
@@ -62,11 +54,9 @@ public class MyListnerReport extends BaseTest implements ITestListener{
 	}
 	
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result){
-		System.out.println("On test Failed but with Success Percentage");
 	}
 	
 	public void onFinish(ITestContext context){
-		System.out.println("On Finish");
 	}
 
 }
