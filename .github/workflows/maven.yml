@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: CI Build Flow
 on:
   push:
     branches: [ main ]
@@ -20,7 +20,7 @@ jobs:
       run:   |
           chmod +x ./scripts/chromeinstaller.sh
                     ./scripts/chromeinstaller.sh 
-    - name:  Install Firefox # Using shell script to install Google Chrome
+    - name:  Install Firefox # Using shell script to install Firefox
       run:   |
           chmod +x ./scripts/InstallFirefox.sh
                     ./scripts/InstallFirefox.sh 
