@@ -1,14 +1,19 @@
 # Blaze-Demo
 
-Chrome and Firefox latest driver will be downloaded. Corresponding driver.exe files are not present in the project.
+This Selenium testing framework is implemented using POM and TestNG. All the dependencies are listed in the Pom.xml file. 
 
-Download the project and unzip.
-Run mvn/mvn test command from the command line. While running the command make sure you are present the correct folder.
+This framework is capable of running the test cases in both Chrome and Firefox browsers, irrespective of the Operating System. It can run on Windows and Linux environments in headless mode.
 
-Reports are present in results folder. Open the index.html file in Chrome. On firefox browser the failed attachment is not visible.
+Prerequisites required to run this framework on your laptop or the local machine,
+Java should be installed and configured.
+Maven should be installed and configured.
 
-Execution on Chrome and Firefox will happen in headless browser, so when you are running in your local browser will not be opened.
+Once the prerequisites are configured or already present. Kindly download the framework from the below URL,
+https://github.com/vivek-hsn/Blaze-Demo.git
 
-Whenever the code is commited a job will run in Actions. CI setup is implement.
+After download, unzip/extract the files present in this framework. Open the command prompt from the extracted/unzipped location. Run the below command to install all the dependencies and run the test cases.
+mvn clean install
 
-Test cases are running on Ubuntu latest operating system in CI.
+After the mvn job is completed, go to the 'results' folder and open index.html in chrome browser to view the test results.
+
+To run the framework from Git Actions kindly send me a request to 'hsn.vivek@gmail.com'. I will add you as a collaborator and you can manually run the framework. 
