@@ -56,6 +56,10 @@ public class CartPage extends BaseTest{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+
+	public testMethod(){
+		return "test";
+	}
 	
 	public boolean verifyNameAndPrice(){
 		
