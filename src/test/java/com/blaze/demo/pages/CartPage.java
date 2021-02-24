@@ -57,6 +57,7 @@ public class CartPage extends BaseTest{
 		PageFactory.initElements(driver, this);
 	}
 
+	// Test comment
 	public testMethod(){
 		return "test";
 	}
