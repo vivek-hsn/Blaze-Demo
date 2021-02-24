@@ -44,6 +44,7 @@ public class Order extends BaseTest{
 		Assert.assertTrue(cart.verifySuccessMsg(), "Parchase was not successfuly");
 		WAIT_FOR_SEC(WAIT_2_SECS);
 		
+		//Test commit
 		cart.completeOrder();
 		WAIT_FOR_SEC(WAIT_2_SECS);
 	}
