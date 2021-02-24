@@ -58,6 +58,7 @@ public class CartPage extends BaseTest{
 	}
 
 	// Test comment
+	//Comment
 	public testMethod(){
 		return "test";
 	}
