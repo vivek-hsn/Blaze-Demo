@@ -26,5 +26,6 @@
 			<class name="com.blaze.demo.tests.Order" />
 		</classes>
 	</test>
+	<!-- Test comment -->
 
 </suite> 
